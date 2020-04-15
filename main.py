@@ -52,38 +52,45 @@ current_values = {
 }
 
 
-def get_state_details(state_name, county):
-    us_page = requests.get(wm_url)
-    us_soup = BeautifulSoup(us_page.content, 'html.parser')
-    usa_table = us_soup.find(id="usa_table_countries_today").find_all('tbody')[0].find_all('tr')
-    usa_total = usa_table[0].find_all('td')
-    current_values['usa_affected'] = usa_total[1].text.strip().replace(',','').replace('+', '')
-    current_values['usa_new_cases'] = usa_total[2].text.strip().replace(',','').replace('+', '')
-    current_values['usa_total_deaths'] = usa_total[3].text.strip().replace(',','').replace('+', '')
-    for i, state in enumerate(usa_table):
-        r = state.find_all('td')
-        if (r[0].text.strip().lower() == state_name):
-            current_values['mi_affected'] = r[1].text.strip().replace(',', '')
-            current_values['mi_new_cases'] = r[2].text.strip().replace(',', '')
-            current_values['mi_total_deaths'] = r[3].text.strip().replace(',', '')
-            current_values['mi_position'] = i
+def get_details(state_name, county):
+    try:
+        us_page = requests.get(wm_url)
+        us_soup = BeautifulSoup(us_page.content, 'html.parser')
+        usa_table = us_soup.find(id="usa_table_countries_today").find_all('tbody')[0].find_all('tr')
+        usa_total = usa_table[0].find_all('td')
+        current_values['usa_affected'] = usa_total[1].text.strip().replace(',','').replace('+', '')
+        current_values['usa_new_cases'] = usa_total[2].text.strip().replace(',','').replace('+', '')
+        current_values['usa_total_deaths'] = usa_total[3].text.strip().replace(',','').replace('+', '')
+        for i, state in enumerate(usa_table):
+            r = state.find_all('td')
+            if (r[0].text.strip().lower() == state_name):
+                current_values['mi_affected'] = r[1].text.strip().replace(',', '')
+                current_values['mi_new_cases'] = r[2].text.strip().replace(',', '')
+                current_values['mi_total_deaths'] = r[3].text.strip().replace(',', '')
+                current_values['mi_position'] = i
 
-    state_page = requests.get(mich_url)
-    state_soup = BeautifulSoup(state_page.content, 'html.parser')
-    state_data = state_soup.find_all('table')[0].find_all('tbody')[0].find_all('tr')
-    for row in state_data:
-        r = row.find_all('td')
-        if (r[0].text.strip().lower() == county):
-            current_values['county_affected'] = r[1].text.replace(',', '')
-            current_values['county_deaths'] = r[2].text.replace(',', '')
+        state_page = requests.get(mich_url)
+        state_soup = BeautifulSoup(state_page.content, 'html.parser')
+        state_data = state_soup.find_all('table')[0].find_all('tbody')[0].find_all('tr')
+        for row in state_data:
+            r = row.find_all('td')
+            if (r[0].text.strip().lower() == county):
+                current_values['county_affected'] = r[1].text.replace(',', '')
+                current_values['county_deaths'] = r[2].text.replace(',', '')
 
-    for key in current_values:
-        if current_values[key] == '':
-            current_values[key] = 0
-        else:
-            current_values[key] = int(current_values[key])
+        for key in current_values:
+            if current_values[key] == '':
+                current_values[key] = 0
+            else:
+                current_values[key] = int(current_values[key])
 
-    return current_values
+        return current_values
+    except:
+        f = open('log.txt', 'a')
+        f.write("<<<<<<<<<<<<<<<<<<Error occured in scrapping the file:" + str(datetime.now()) + '>>>>>>>>>>>>>>>>>>>>>\n')
+        f.close()
+        return False
+    
 
     
 
@@ -114,7 +121,9 @@ def main():
     mails = open('mail.txt')
     receiver_email = mails.read().split()  # Enter receiver address
     state, county = 'michigan', 'isabella'
-    state_obj = get_state_details(state, county)
+    state_obj = get_details(state, county)
+    if state_obj == False:
+        return
     update_status = validate(state_obj)
     if update_status:
         template = templateEnv.get_template(TEMPLATE_FILE)

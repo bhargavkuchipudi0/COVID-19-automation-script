@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body style="background-image:url(https://www2.deloitte.com/content/dam/insights/us/articles/6677_covid-19/images/6677_banner1.jpg/_jcr_content/renditions/cq5dam.web.1440.660.jpeg);background-attachment:fixed;background-position:center;background-repeat:no-repeat;background-size:cover;border-width:0px;margin-top:0px;margin-bottom:0px;margin-right:0px;margin-left:0px;color:#717171;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;" >
-    <div class="title" style="margin-top:15px;margin-bottom:0;margin-right:auto;margin-left:auto;text-align:center;" >
+    <div class="title" style="margin-top:0;margin-bottom:0;margin-right:auto;margin-left:auto;text-align:center;" >
         <h2 style="color:white;" >COVID-19 UPDATE</h2>
     </div>
     <div class="main" style="width:300px;min-height:270px;height:auto;margin-top:0;margin-bottom:0;margin-right:auto;margin-left:auto;background-color:#ffffff;border-radius:15px;align-items:center;padding-top:10px;padding-bottom:10px;padding-right:10px;padding-left:10px;" >
@@ -15,18 +15,15 @@
                 <img class="usa_flag" src="https://flaglane.com/download/american-flag/american-flag-small.png" alt="USA_flag" style="width:50px;margin-right:10px;" >
                 <h3 style="margin-top:5px;margin-bottom:5px;margin-right:0;margin-left:0;font-size:1em;" >USA</h3>
             </div>
-            <div class="bod" style="padding-left:70px;" >
+            <div class="bod">
                 <div class="content">
-                    <h3 style="margin-top:5px;margin-bottom:5px;margin-right:0;margin-left:0;font-size:1em;" >Affected</h3>
-                    <h3 id="num1" style="margin-top:5px;margin-bottom:5px;margin-right:0;margin-left:0;font-size:1em;color:#6b78ff;" >{{ usa_affected }}</h3>
+                    <h5 style="margin-top:5px;margin-bottom:5px;margin-right:0;margin-left:0;font-size:0.9em;" >Affected : <span id="num1" style="color:#6b78ff;" >{{ usa_affected }}</span></h5>
                 </div>
                 <div class="content">
-                    <h3 style="margin-top:5px;margin-bottom:5px;margin-right:0;margin-left:0;font-size:1em;" >New cases</h3>
-                    <h3 id="num2" style="margin-top:5px;margin-bottom:5px;margin-right:0;margin-left:0;font-size:1em;color:#9aeed7;" >{{ usa_new_cases }}</h3>
+                    <h5 style="margin-top:5px;margin-bottom:5px;margin-right:0;margin-left:0;font-size:0.9em;" >New cases : <span id="num2" style="color:#9aeed7;" >{{ usa_new_cases }}</span></h5>
                 </div>
                 <div class="content">
-                    <h3 style="margin-top:5px;margin-bottom:5px;margin-right:0;margin-left:0;font-size:1em;" >Deaths</h3>
-                    <h3 id="num3" style="margin-top:5px;margin-bottom:5px;margin-right:0;margin-left:0;font-size:1em;color:#e48b93;" >{{ usa_total_deaths }}</h3>
+                    <h5 style="margin-top:5px;margin-bottom:5px;margin-right:0;margin-left:0;font-size:0.9em;" >Deaths : <span id="num3" style="color:#e48b93;" >{{ usa_total_deaths }}</span></h5>
                 </div>
             </div>
         </div>
@@ -35,40 +32,35 @@
                 <img class="usa_flag" src="https://www.pinclipart.com/picdir/middle/66-666370_michigan-wolverines-logo-bing-images-ohio-state-michigan.png" alt="USA_flag" style="width:50px;margin-right:10px;" >
                 <h3 style="margin-top:5px;margin-bottom:5px;margin-right:0;margin-left:0;font-size:1em;" >MICHIGAN</h3>
             </div>
-            <div class="bod" style="padding-left:70px;" >
+            <div class="bod">
                 <div class="content">
-                    <h3 style="margin-top:5px;margin-bottom:5px;margin-right:0;margin-left:0;font-size:1em;" >Affected</h3>
-                    <h3 id="num1" style="margin-top:5px;margin-bottom:5px;margin-right:0;margin-left:0;font-size:1em;color:#6b78ff;" >{{ mi_affected }}</h3>
+                    <h5 style="margin-top:5px;margin-bottom:5px;margin-right:0;margin-left:0;font-size:0.9em;" >Affected : <span id="num1" style="color:#6b78ff;" >{{ mi_affected }}</span></h5>
                 </div>
                 <div class="content">
-                    <h3 style="margin-top:5px;margin-bottom:5px;margin-right:0;margin-left:0;font-size:1em;" >New cases</h3>
-                    <h3 id="num2" style="margin-top:5px;margin-bottom:5px;margin-right:0;margin-left:0;font-size:1em;color:#9aeed7;" >{{ mi_new_cases }}</h3>
+                    <h5 style="margin-top:5px;margin-bottom:5px;margin-right:0;margin-left:0;font-size:0.9em;" >New cases : <span id="num2" style="color:#9aeed7;" >{{ mi_new_cases }}</span></h5>
                 </div>
                 <div class="content">
-                    <h3 style="margin-top:5px;margin-bottom:5px;margin-right:0;margin-left:0;font-size:1em;" >Deaths</h3>
-                    <h3 id="num3" style="margin-top:5px;margin-bottom:5px;margin-right:0;margin-left:0;font-size:1em;color:#e48b93;" >{{ mi_total_deaths }}</h3>
+                    <h5 style="margin-top:5px;margin-bottom:5px;margin-right:0;margin-left:0;font-size:0.9em;" >Deaths : <span id="num3" style="color:#e48b93;" >{{ mi_total_deaths }}</span></h5>
                 </div>
             </div>
         </div>
         <div class="usa" style="width:85%;border-width:1px;border-style:solid;border-color:#b9acac;border-radius:5px;padding-top:5px;padding-bottom:5px;padding-right:5px;padding-left:5px;margin-top:5px;margin-bottom:5px;margin-right:auto;margin-left:auto;" >
             <div class="head">
-                <img class="county" src="https://www.isabellacounty.org/wp-content/uploads/2018/09/logo-isabella-county-logo-bw-min.png" alt="USA_flag" style="width:45px;margin-right:5px;" >
+                <img class="county" src="https://www.isabellacounty.org/wp-content/uploads/2018/09/logo-isabella-county-logo-bw-min.png" alt="USA_flag" style="width:38px;margin-right:5px;" >
                 <h3 style="margin-top:5px;margin-bottom:5px;margin-right:0;margin-left:0;font-size:1em;" >ISABELLA COUNTY</h3>
             </div>
-            <div class="bod" style="padding-left:70px;" >
+            <div class="bod">
                 <div class="content">
-                    <h3 style="margin-top:5px;margin-bottom:5px;margin-right:0;margin-left:0;font-size:1em;" >Affected</h3>
-                    <h3 id="num1" style="margin-top:5px;margin-bottom:5px;margin-right:0;margin-left:0;font-size:1em;color:#6b78ff;" >{{ county_affected }}</h3>
+                    <h5 style="margin-top:5px;margin-bottom:5px;margin-right:0;margin-left:0;font-size:0.9em;" >Affected : <span id="num1" style="color:#6b78ff;" >{{ county_affected }}</span></h5>
                 </div>
                 <div class="content">
-                    <h3 style="margin-top:5px;margin-bottom:5px;margin-right:0;margin-left:0;font-size:1em;" >Deaths</h3>
-                    <h3 id="num3" style="margin-top:5px;margin-bottom:5px;margin-right:0;margin-left:0;font-size:1em;color:#e48b93;" >{{ county_deaths }}</h3>
+                    <h5 style="margin-top:5px;margin-bottom:5px;margin-right:0;margin-left:0;font-size:0.9em;" >Deaths : <span id="num2" style="color:#9aeed7;" >{{ county_deaths }}</span></h5>
                 </div>
             </div>
         </div>
     </div>
-    <div class="copy-r" style="text-align:center;" >
-        <p id="copy-right" style="color:white;font-size:0.8em;" >© Designed and Developed by BHARGAV KUCHIPUDI</p>
+    <div class="copy-r" style="text-align:center;margin-top:5px;" >
+        <p id="copy-right" style="color:white;font-size:0.8em;margin-top:0;margin-bottom:0;margin-right:0;margin-left:0;" >© Designed and Developed by BHARGAV INC.</p>
     </div>
 </body>
 </html>
